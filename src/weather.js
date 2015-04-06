@@ -21,7 +21,19 @@ function getResourceIdForIconString(icon) {
     'partly-cloudy-day': 8,
     'partly-cloudy-night': 9,
     'hail': 10,
-    'thunderstorm': 11
+    'thunderstorm': 11,
+    'clear-day-small': 12,
+    'clear-night-small': 13,
+    'rain-small': 14,
+    'snow-small': 15,
+    'sleet-small': 16,
+    'wind-small': 17,
+    'fog-small': 18,
+    'cloudy-small': 19,
+    'partly-cloudy-day-small': 20,
+    'partly-cloudy-night-small': 21,
+    'hail-small': 22,
+    'thunderstorm-small': 23
   };
   // Make sure we have a default resource id
   var resource_id = 0;
@@ -37,7 +49,7 @@ function locationSuccess(pos) {
   // Construct URL
   var url = 'https://api.forecast.io/forecast/acb79d16706f871691877ca0e5a9f346/' +
       pos.coords.latitude + ',' + pos.coords.longitude;
-
+  console.log(url);
   // Send request to OpenWeatherMap
   xhrRequest(url, 'GET', 
     function(responseText) {
@@ -51,19 +63,31 @@ function locationSuccess(pos) {
       // Conditions
       var conditions = json.minutely.summary;
       var icon = json.minutely.icon;
-      // Day Summary
-      var day_summary = json.hourly.summary;
-      console.log('Conditions are ' + conditions + " " + icon + " " + day_summary);
-      
+      // Days Summary
+      var daily = json.daily.data;
+      var day_1_day = new Date(daily[1].time * 1000).toDateString().split(" ")[0];
+      var day_1_temp = Math.round(daily[1].temperatureMax);
+      var day_1_icon = daily[1].icon + '-small';
+      var day_2_day = new Date(daily[2].time * 1000).toDateString().split(" ")[0];
+      var day_2_temp = Math.round(daily[2].temperatureMax);
+      var day_2_icon = daily[2].icon + '-small';
+      console.log("Days are " + day_1_day + " :: " + day_2_day);
       // Get a valid resource id from the icon string
       var resource_id = getResourceIdForIconString(icon);
-      console.log("RESOURCE ID FROM JS IS " + resource_id);
+      var day_1_resource_id = getResourceIdForIconString(day_1_icon);
+      var day_2_resource_id = getResourceIdForIconString(day_2_icon);
+      
       // Assemble dictionary using our keys
       var dictionary = {
         'KEY_TEMPERATURE': temperature,
         'KEY_CONDITIONS': conditions,
         'KEY_ICON': resource_id,
-        'KEY_DAY_SUMMARY': day_summary
+        'KEY_DAY_ONE_TEMPERATURE': day_1_temp,
+        'KEY_DAY_ONE_ICON': day_1_resource_id,
+        'KEY_DAY_TWO_TEMPERATURE': day_2_temp,
+        'KEY_DAY_TWO_ICON': day_2_resource_id,
+        'KEY_DAY_ONE_DAY': day_1_day,
+        'KEY_DAY_TWO_DAY': day_2_day
       };
       
       // Send to Pebble

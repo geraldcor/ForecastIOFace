@@ -14,62 +14,62 @@
     "resources": {
         "media": [
             {
-                "file": "images/wind36~bw.png",
+                "file": "images/wind~bw.png",
                 "name": "WIND_36",
                 "type": "png"
             },
             {
-                "file": "images/thunderstorm36~bw.png",
+                "file": "images/thunderstorm~bw.png",
                 "name": "THUNDERSTORM_36",
                 "type": "png"
             },
             {
-                "file": "images/snow36~bw.png",
+                "file": "images/snow~bw.png",
                 "name": "SNOW_36",
                 "type": "png"
             },
             {
-                "file": "images/sleet36~bw.png",
+                "file": "images/sleet~bw.png",
                 "name": "SLEET_36",
                 "type": "png"
             },
             {
-                "file": "images/rain36~bw.png",
+                "file": "images/rain~bw.png",
                 "name": "RAIN_36",
                 "type": "png"
             },
             {
-                "file": "images/partly-cloudy-night36~bw.png",
+                "file": "images/partly-cloudy-night~bw.png",
                 "name": "PARTLY_CLOUDY_NIGHT_36",
                 "type": "png"
             },
             {
-                "file": "images/partly-cloudy-day36~bw.png",
+                "file": "images/partly-cloudy-day~bw.png",
                 "name": "PARTLY_CLOUDY_DAY_36",
                 "type": "png"
             },
             {
-                "file": "images/hail36~bw.png",
+                "file": "images/hail~bw.png",
                 "name": "HAIL_36",
                 "type": "png"
             },
             {
-                "file": "images/fog36~bw.png",
+                "file": "images/fog~bw.png",
                 "name": "FOG_36",
                 "type": "png"
             },
             {
-                "file": "images/cloudy36~bw.png",
+                "file": "images/cloudy~bw.png",
                 "name": "CLOUDY_36",
                 "type": "png"
             },
             {
-                "file": "images/clear-night36~bw.png",
+                "file": "images/clear-night~bw.png",
                 "name": "CLEAR_NIGHT_36",
                 "type": "png"
             },
             {
-                "file": "images/clear-day36~bw.png",
+                "file": "images/clear-day~bw.png",
                 "name": "CLEAR_DAY_36",
                 "type": "png"
             },

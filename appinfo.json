@@ -1,0 +1,169 @@
+{
+    "appKeys": {
+        "KEY_CONDITIONS": 1,
+        "KEY_DAY_SUMMARY": 3,
+        "KEY_ICON": 2,
+        "KEY_TEMPERATURE": 0
+    },
+    "capabilities": [
+        ""
+    ],
+    "companyName": "gregcorey@gmail.com",
+    "longName": "ForecastIO Face",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/wind36~bw.png",
+                "name": "WIND_36",
+                "type": "png"
+            },
+            {
+                "file": "images/thunderstorm36~bw.png",
+                "name": "THUNDERSTORM_36",
+                "type": "png"
+            },
+            {
+                "file": "images/snow36~bw.png",
+                "name": "SNOW_36",
+                "type": "png"
+            },
+            {
+                "file": "images/sleet36~bw.png",
+                "name": "SLEET_36",
+                "type": "png"
+            },
+            {
+                "file": "images/rain36~bw.png",
+                "name": "RAIN_36",
+                "type": "png"
+            },
+            {
+                "file": "images/partly-cloudy-night36~bw.png",
+                "name": "PARTLY_CLOUDY_NIGHT_36",
+                "type": "png"
+            },
+            {
+                "file": "images/partly-cloudy-day36~bw.png",
+                "name": "PARTLY_CLOUDY_DAY_36",
+                "type": "png"
+            },
+            {
+                "file": "images/hail36~bw.png",
+                "name": "HAIL_36",
+                "type": "png"
+            },
+            {
+                "file": "images/fog36~bw.png",
+                "name": "FOG_36",
+                "type": "png"
+            },
+            {
+                "file": "images/cloudy36~bw.png",
+                "name": "CLOUDY_36",
+                "type": "png"
+            },
+            {
+                "file": "images/clear-night36~bw.png",
+                "name": "CLEAR_NIGHT_36",
+                "type": "png"
+            },
+            {
+                "file": "images/clear-day36~bw.png",
+                "name": "CLEAR_DAY_36",
+                "type": "png"
+            },
+            {
+                "file": "images/partly-cloudy-day.png",
+                "name": "PARTLY_CLOUDY_DAY",
+                "type": "png"
+            },
+            {
+                "file": "images/partly-cloudy-night.png",
+                "name": "PARTLY_CLOUDY_NIGHT",
+                "type": "png"
+            },
+            {
+                "file": "images/thunderstorm.png",
+                "name": "THUNDERSTORM",
+                "type": "png"
+            },
+            {
+                "file": "images/hail.png",
+                "name": "HAIL",
+                "type": "png"
+            },
+            {
+                "file": "images/cloudy.png",
+                "name": "CLOUDY",
+                "type": "png"
+            },
+            {
+                "file": "images/fog.png",
+                "name": "FOG",
+                "type": "png"
+            },
+            {
+                "file": "images/wind.png",
+                "name": "WIND",
+                "type": "png"
+            },
+            {
+                "file": "images/sleet.png",
+                "name": "SLEET",
+                "type": "png"
+            },
+            {
+                "file": "images/snow.png",
+                "name": "SNOW",
+                "type": "png"
+            },
+            {
+                "file": "images/rain.png",
+                "name": "RAIN",
+                "type": "png"
+            },
+            {
+                "file": "images/clear-night.png",
+                "name": "CLEAR_NIGHT",
+                "type": "png"
+            },
+            {
+                "file": "images/clear-day.png",
+                "name": "CLEAR_DAY",
+                "type": "png"
+            },
+            {
+                "file": "fonts/Arvo-Bold.ttf",
+                "name": "ARVO_BOLD_34",
+                "type": "font"
+            },
+            {
+                "file": "fonts/Arvo-Regular.ttf",
+                "name": "ARVO_REGULAR_12",
+                "type": "font"
+            },
+            {
+                "file": "fonts/Arvo-Regular.ttf",
+                "name": "ARVO_REGULAR_34",
+                "type": "font"
+            },
+            {
+                "file": "fonts/Arvo-Regular.ttf",
+                "name": "ARVO_REGULAR_14",
+                "type": "font"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "ForecastIO Face",
+    "targetPlatforms": [
+        "aplite"
+    ],
+    "uuid": "5bd22883-1f66-4206-b49a-4181c9d6c647",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}

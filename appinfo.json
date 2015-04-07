@@ -19,8 +19,133 @@
     "resources": {
         "media": [
             {
+                "file": "images/wind36.png",
+                "name": "WIND_36",
+                "type": "png"
+            },
+            {
+                "file": "images/thunderstorm36.png",
+                "name": "THUNDERSTORM_36",
+                "type": "png"
+            },
+            {
+                "file": "images/snow36.png",
+                "name": "SNOW_36",
+                "type": "png"
+            },
+            {
+                "file": "images/sleet36.png",
+                "name": "SLEET_36",
+                "type": "png"
+            },
+            {
+                "file": "images/rain36.png",
+                "name": "RAIN_36",
+                "type": "png"
+            },
+            {
+                "file": "images/partly-cloudy-night36.png",
+                "name": "PARTLY_CLOUDY_NIGHT_36",
+                "type": "png"
+            },
+            {
+                "file": "images/partly-cloudy-day36.png",
+                "name": "PARTLY_CLOUDY_DAY_36",
+                "type": "png"
+            },
+            {
+                "file": "images/hail36.png",
+                "name": "HAIL_36",
+                "type": "png"
+            },
+            {
+                "file": "images/fog36.png",
+                "name": "FOG_36",
+                "type": "png"
+            },
+            {
+                "file": "images/cloudy36.png",
+                "name": "CLOUDY_36",
+                "type": "png"
+            },
+            {
+                "file": "images/clear-night36.png",
+                "name": "CLEAR_NIGHT_36",
+                "type": "png"
+            },
+            {
+                "file": "images/clear-day36.png",
+                "name": "CLEAR_DAY_36",
+                "type": "png"
+            },
+            {
+                "file": "images/partly-cloudy-day.png",
+                "name": "PARTLY_CLOUDY_DAY",
+                "type": "png"
+            },
+            {
+                "file": "images/partly-cloudy-night.png",
+                "name": "PARTLY_CLOUDY_NIGHT",
+                "type": "png"
+            },
+            {
+                "file": "images/thunderstorm.png",
+                "name": "THUNDERSTORM",
+                "type": "png"
+            },
+            {
+                "file": "images/hail.png",
+                "name": "HAIL",
+                "type": "png"
+            },
+            {
+                "file": "images/cloudy.png",
+                "name": "CLOUDY",
+                "type": "png"
+            },
+            {
+                "file": "images/fog.png",
+                "name": "FOG",
+                "type": "png"
+            },
+            {
+                "file": "images/wind.png",
+                "name": "WIND",
+                "type": "png"
+            },
+            {
+                "file": "images/sleet.png",
+                "name": "SLEET",
+                "type": "png"
+            },
+            {
+                "file": "images/snow.png",
+                "name": "SNOW",
+                "type": "png"
+            },
+            {
+                "file": "images/rain.png",
+                "name": "RAIN",
+                "type": "png"
+            },
+            {
+                "file": "images/clear-night.png",
+                "name": "CLEAR_NIGHT",
+                "type": "png"
+            },
+            {
+                "file": "images/clear-day.png",
+                "name": "CLEAR_DAY",
+                "type": "png"
+            },
+            {
+                "file": "fonts/Arvo-Bold.ttf",
+                "name": "ARVO_BOLD_34",
+                "type": "font"
+            },
+            {
                 "file": "fonts/Arvo-Regular.ttf",
-                "name": "ARVO_REGULAR_14",
+                "name": "ARVO_REGULAR_12",
                 "type": "font"
             },
             {
@@ -30,140 +155,15 @@
             },
             {
                 "file": "fonts/Arvo-Regular.ttf",
-                "name": "ARVO_REGULAR_12",
+                "name": "ARVO_REGULAR_14",
                 "type": "font"
-            },
-            {
-                "file": "fonts/Arvo-Bold.ttf",
-                "name": "ARVO_BOLD_34",
-                "type": "font"
-            },
-            {
-                "file": "images/clear-day.png",
-                "name": "CLEAR_DAY",
-                "type": "png"
-            },
-            {
-                "file": "images/clear-night.png",
-                "name": "CLEAR_NIGHT",
-                "type": "png"
-            },
-            {
-                "file": "images/rain.png",
-                "name": "RAIN",
-                "type": "png"
-            },
-            {
-                "file": "images/snow.png",
-                "name": "SNOW",
-                "type": "png"
-            },
-            {
-                "file": "images/sleet.png",
-                "name": "SLEET",
-                "type": "png"
-            },
-            {
-                "file": "images/wind.png",
-                "name": "WIND",
-                "type": "png"
-            },
-            {
-                "file": "images/fog.png",
-                "name": "FOG",
-                "type": "png"
-            },
-            {
-                "file": "images/cloudy.png",
-                "name": "CLOUDY",
-                "type": "png"
-            },
-            {
-                "file": "images/hail.png",
-                "name": "HAIL",
-                "type": "png"
-            },
-            {
-                "file": "images/thunderstorm.png",
-                "name": "THUNDERSTORM",
-                "type": "png"
-            },
-            {
-                "file": "images/partly-cloudy-night.png",
-                "name": "PARTLY_CLOUDY_NIGHT",
-                "type": "png"
-            },
-            {
-                "file": "images/partly-cloudy-day.png",
-                "name": "PARTLY_CLOUDY_DAY",
-                "type": "png"
-            },
-            {
-                "file": "images/clear-day36.png",
-                "name": "CLEAR_DAY_36",
-                "type": "png"
-            },
-            {
-                "file": "images/clear-night36.png",
-                "name": "CLEAR_NIGHT_36",
-                "type": "png"
-            },
-            {
-                "file": "images/cloudy36.png",
-                "name": "CLOUDY_36",
-                "type": "png"
-            },
-            {
-                "file": "images/fog36.png",
-                "name": "FOG_36",
-                "type": "png"
-            },
-            {
-                "file": "images/hail36.png",
-                "name": "HAIL_36",
-                "type": "png"
-            },
-            {
-                "file": "images/partly-cloudy-day36.png",
-                "name": "PARTLY_CLOUDY_DAY_36",
-                "type": "png"
-            },
-            {
-                "file": "images/partly-cloudy-night36.png",
-                "name": "PARTLY_CLOUDY_NIGHT_36",
-                "type": "png"
-            },
-            {
-                "file": "images/rain36.png",
-                "name": "RAIN_36",
-                "type": "png"
-            },
-            {
-                "file": "images/sleet36.png",
-                "name": "SLEET_36",
-                "type": "png"
-            },
-            {
-                "file": "images/snow36.png",
-                "name": "SNOW_36",
-                "type": "png"
-            },
-            {
-                "file": "images/thunderstorm36.png",
-                "name": "THUNDERSTORM_36",
-                "type": "png"
-            },
-            {
-                "file": "images/wind36.png",
-                "name": "WIND_36",
-                "type": "png"
             }
         ]
     },
     "sdkVersion": "3",
     "shortName": "ForecastIO Face",
     "targetPlatforms": [
-        "aplite"
+        "basalt"
     ],
     "uuid": "5bd22883-1f66-4206-b49a-4181c9d6c647",
     "versionCode": 1,

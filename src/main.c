@@ -339,7 +339,7 @@ static int get_resource_id_for_forecast(int icon_int) {
 
 static void inbox_received_callback(DictionaryIterator *iterator, void *context) {
   static char temperature_buffer[8];
-  static char conditions_buffer[255];
+  static char conditions_buffer[50];
   static int icon_int;
   static char day_one_temperature_buffer[8];
   static char day_two_temperature_buffer[8];

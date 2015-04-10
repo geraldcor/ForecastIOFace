@@ -203,7 +203,7 @@ static void main_window_load(Window *window) {
   s_day_summary_text_first_layer = text_layer_create(GRect(20, 56, 36, 18));
   text_layer_set_background_color(s_day_summary_text_first_layer, GColorClear);
   #ifdef PBL_COLOR
-    text_layer_set_text_color(s_day_summary_text_first_layer, GColorOrange);
+    text_layer_set_text_color(s_day_summary_text_first_layer, GColorPictonBlue);
   #else
     text_layer_set_text_color(s_day_summary_text_first_layer, GColorWhite);
   #endif
@@ -215,7 +215,7 @@ static void main_window_load(Window *window) {
   s_day_summary_text_second_layer = text_layer_create(GRect(88, 56, 36, 18));
   text_layer_set_background_color(s_day_summary_text_second_layer, GColorClear);
   #ifdef PBL_COLOR
-    text_layer_set_text_color(s_day_summary_text_second_layer, GColorOrange);
+    text_layer_set_text_color(s_day_summary_text_second_layer, GColorPictonBlue);
   #else
     text_layer_set_text_color(s_day_summary_text_second_layer, GColorWhite);
   #endif

@@ -163,6 +163,7 @@
     "sdkVersion": "3",
     "shortName": "ForecastIO Face",
     "targetPlatforms": [
+        "aplite",
         "basalt"
     ],
     "uuid": "5bd22883-1f66-4206-b49a-4181c9d6c647",

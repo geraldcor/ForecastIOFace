@@ -30,7 +30,7 @@ static TextLayer *s_day_summary_text_second_layer;
 static TextLayer *s_day_summary_first_day_layer;
 static TextLayer *s_day_summary_second_day_layer;
 
-//https://api.forecast.io/forecast/acb79d16706f871691877ca0e5a9f346/37.8267,-122.423
+// https://api.forecast.io/forecast/acb79d16706f871691877ca0e5a9f346/40.68724460903619,-111.84785331609831
 
 static void update_time() {
   // Get a tm structure
@@ -390,6 +390,10 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
     t = dict_read_next(iterator);
   }
   APP_LOG(APP_LOG_LEVEL_INFO, "Key %d IS ICON!", icon_int);
+  // Let's try destroying our bitmaps first
+  gbitmap_destroy(s_weather_bitmap);
+  gbitmap_destroy(s_day_summary_first);
+  gbitmap_destroy(s_day_summary_second);
   
   // Set our Weather and Summary
   text_layer_set_text(s_weather_text_layer, temperature_buffer);

@@ -50,11 +50,12 @@ function locationSuccess(pos) {
   var url = 'https://api.forecast.io/forecast/acb79d16706f871691877ca0e5a9f346/' +
       pos.coords.latitude + ',' + pos.coords.longitude;
   console.log(url);
-  // Send request to OpenWeatherMap
+  // Send request to Forecast.io
   xhrRequest(url, 'GET', 
     function(responseText) {
       // responseText contains a JSON object with weather info
       var json = JSON.parse(responseText);
+      var daily = json.daily.data;
       console.log(json);
       // Temperature in Kelvin requires adjustment
       var temperature = Math.round(json.currently.temperature);
@@ -62,9 +63,10 @@ function locationSuccess(pos) {
 
       // Conditions
       var conditions = json.minutely.summary;
+      var todayMax = Math.round(daily[0].temperatureMax);
+      conditions = conditions + " High: " + todayMax + "˚";
       var icon = json.minutely.icon;
       // Days Summary
-      var daily = json.daily.data;
       var day_1_day = new Date(daily[1].time * 1000).toDateString().split(" ")[0];
       var day_1_temp = Math.round(daily[1].temperatureMax);
       var day_1_icon = daily[1].icon + '-small';

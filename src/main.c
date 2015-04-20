@@ -119,7 +119,7 @@ static void main_window_load(Window *window) {
   text_layer_set_text_alignment(s_date_layer, GTextAlignmentCenter);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_date_layer));
   
-  // Create Icon
+  // Create Main Icon
   s_weather_bitmap = gbitmap_create_with_resource(RESOURCE_ID_CLEAR_DAY);
   s_weather_bitmap_layer = bitmap_layer_create(GRect(10, 5, 48, 48));
   bitmap_layer_set_bitmap(s_weather_bitmap_layer, s_weather_bitmap);
@@ -128,7 +128,7 @@ static void main_window_load(Window *window) {
   #endif
   layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_weather_bitmap_layer));
   
-  // Create Weather Temperature Layer
+  // Create Main Temperature Layer
   s_weather_text_layer = text_layer_create(GRect(56, 14, 83, 36));
   text_layer_set_background_color(s_weather_text_layer, GColorClear);
   #ifdef PBL_COLOR
@@ -140,8 +140,8 @@ static void main_window_load(Window *window) {
   text_layer_set_text_alignment(s_weather_text_layer, GTextAlignmentRight);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_weather_text_layer));
   
-  // Create Weather Summary Layer
-  s_weather_summary_layer = text_layer_create(GRect(5, 52, 134, 74));
+  // Create Weather Main Summary Layer
+  s_weather_summary_layer = text_layer_create(GRect(5, 57, 134, 69));
   text_layer_set_background_color(s_weather_summary_layer, GColorClear);
   text_layer_set_text_color(s_weather_summary_layer, GColorWhite);
   text_layer_set_overflow_mode(s_weather_summary_layer, GTextOverflowModeWordWrap);
@@ -150,13 +150,13 @@ static void main_window_load(Window *window) {
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_weather_summary_layer));
   
   // Create Weather Day Summary Layer (default hidden)
-  s_weather_day_summary_layer = layer_create(GRect(0, 52, 144, 74));
+  s_weather_day_summary_layer = layer_create(GRect(0, 55, 144, 69));
   layer_set_hidden(s_weather_day_summary_layer, true);
   layer_add_child(window_get_root_layer(window), s_weather_day_summary_layer);
   
   // Create Day Layers
   // First
-  s_day_summary_first_day_layer = text_layer_create(GRect(20, 0, 36, 18));
+  s_day_summary_first_day_layer = text_layer_create(GRect(25, 0, 36, 16));
   text_layer_set_background_color(s_day_summary_first_day_layer, GColorClear);
   #ifdef PBL_COLOR
     text_layer_set_text_color(s_day_summary_first_day_layer, GColorOrange);
@@ -168,7 +168,7 @@ static void main_window_load(Window *window) {
   layer_add_child(s_weather_day_summary_layer, text_layer_get_layer(s_day_summary_first_day_layer));
 
   // Second
-  s_day_summary_second_day_layer = text_layer_create(GRect(88, 0, 36, 18));
+  s_day_summary_second_day_layer = text_layer_create(GRect(82, 0, 36, 16));
   text_layer_set_background_color(s_day_summary_second_day_layer, GColorClear);
   #ifdef PBL_COLOR
     text_layer_set_text_color(s_day_summary_second_day_layer, GColorOrange);
@@ -179,31 +179,12 @@ static void main_window_load(Window *window) {
   text_layer_set_text_alignment(s_day_summary_second_day_layer, GTextAlignmentCenter);
   layer_add_child(s_weather_day_summary_layer, text_layer_get_layer(s_day_summary_second_day_layer));
   
-  // Create Summary Icons For 2 days
-  // First
-  s_day_summary_first = gbitmap_create_with_resource(RESOURCE_ID_CLEAR_DAY);
-  s_day_summary_first_layer = bitmap_layer_create(GRect(20, 20, 36, 36));
-  bitmap_layer_set_bitmap(s_day_summary_first_layer, s_day_summary_first);
-  #ifdef PBL_COLOR
-    bitmap_layer_set_compositing_mode(s_day_summary_first_layer, GCompOpSet);
-  #endif
-  layer_add_child(s_weather_day_summary_layer, bitmap_layer_get_layer(s_day_summary_first_layer));
-  
-  // Second
-  s_day_summary_second = gbitmap_create_with_resource(RESOURCE_ID_CLEAR_DAY);
-  s_day_summary_second_layer = bitmap_layer_create(GRect(88, 20, 36, 36));
-  bitmap_layer_set_bitmap(s_day_summary_second_layer, s_day_summary_second);
-  #ifdef PBL_COLOR
-    bitmap_layer_set_compositing_mode(s_day_summary_second_layer, GCompOpSet);
-  #endif
-  layer_add_child(s_weather_day_summary_layer, bitmap_layer_get_layer(s_day_summary_second_layer));
-  
   // Create Summary Temperature layers
   // First
-  s_day_summary_text_first_layer = text_layer_create(GRect(20, 56, 36, 18));
+  s_day_summary_text_first_layer = text_layer_create(GRect(27, 16, 36, 16));
   text_layer_set_background_color(s_day_summary_text_first_layer, GColorClear);
   #ifdef PBL_COLOR
-    text_layer_set_text_color(s_day_summary_text_first_layer, GColorPictonBlue);
+    text_layer_set_text_color(s_day_summary_text_first_layer, GColorOrange);
   #else
     text_layer_set_text_color(s_day_summary_text_first_layer, GColorWhite);
   #endif
@@ -212,16 +193,35 @@ static void main_window_load(Window *window) {
   layer_add_child(s_weather_day_summary_layer, text_layer_get_layer(s_day_summary_text_first_layer));
   
   // Second
-  s_day_summary_text_second_layer = text_layer_create(GRect(88, 56, 36, 18));
+  s_day_summary_text_second_layer = text_layer_create(GRect(84, 16, 36, 16));
   text_layer_set_background_color(s_day_summary_text_second_layer, GColorClear);
   #ifdef PBL_COLOR
-    text_layer_set_text_color(s_day_summary_text_second_layer, GColorPictonBlue);
+    text_layer_set_text_color(s_day_summary_text_second_layer, GColorOrange);
   #else
     text_layer_set_text_color(s_day_summary_text_second_layer, GColorWhite);
   #endif
   text_layer_set_font(s_day_summary_text_second_layer, s_summary_font);
   text_layer_set_text_alignment(s_day_summary_text_second_layer, GTextAlignmentCenter);
   layer_add_child(s_weather_day_summary_layer, text_layer_get_layer(s_day_summary_text_second_layer));
+  
+  // Create Summary Icons For 2 days
+  // First
+  s_day_summary_first = gbitmap_create_with_resource(RESOURCE_ID_CLEAR_DAY);
+  s_day_summary_first_layer = bitmap_layer_create(GRect(25, 34, 36, 36));
+  bitmap_layer_set_bitmap(s_day_summary_first_layer, s_day_summary_first);
+  #ifdef PBL_COLOR
+    bitmap_layer_set_compositing_mode(s_day_summary_first_layer, GCompOpSet);
+  #endif
+  layer_add_child(s_weather_day_summary_layer, bitmap_layer_get_layer(s_day_summary_first_layer));
+  
+  // Second
+  s_day_summary_second = gbitmap_create_with_resource(RESOURCE_ID_CLEAR_DAY);
+  s_day_summary_second_layer = bitmap_layer_create(GRect(82, 34, 36, 36));
+  bitmap_layer_set_bitmap(s_day_summary_second_layer, s_day_summary_second);
+  #ifdef PBL_COLOR
+    bitmap_layer_set_compositing_mode(s_day_summary_second_layer, GCompOpSet);
+  #endif
+  layer_add_child(s_weather_day_summary_layer, bitmap_layer_get_layer(s_day_summary_second_layer));
 }
 
 static void main_window_unload(Window *window) {
@@ -243,14 +243,14 @@ static void main_window_unload(Window *window) {
   // Destroy summary days layers
   text_layer_destroy(s_day_summary_first_day_layer);
   text_layer_destroy(s_day_summary_second_day_layer);
+  // Destroy summary temperature layers
+  text_layer_destroy(s_day_summary_text_first_layer);
+  text_layer_destroy(s_day_summary_text_second_layer);
   // Destroy summary Icons
   gbitmap_destroy(s_day_summary_first);
   bitmap_layer_destroy(s_day_summary_first_layer);
   gbitmap_destroy(s_day_summary_second);
   bitmap_layer_destroy(s_day_summary_second_layer);
-  // Destroy Temperature Summary Layers
-  text_layer_destroy(s_day_summary_text_first_layer);
-  text_layer_destroy(s_day_summary_text_second_layer);
   // Destroy Weather Day Summary Layer
   layer_destroy(s_weather_day_summary_layer);
 }
@@ -341,10 +341,10 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
   static char temperature_buffer[8];
   static char conditions_buffer[50];
   static int icon_int;
-  static char day_one_temperature_buffer[8];
-  static char day_two_temperature_buffer[8];
   static int day_one_icon;
   static int day_two_icon;
+  static char day_one_temperature_buffer[5];
+  static char day_two_temperature_buffer[5];
   static char day_one_buffer[5];
   static char day_two_buffer[5];
   
@@ -404,14 +404,14 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
   // Set Day summary Days
   text_layer_set_text(s_day_summary_first_day_layer, day_one_buffer);
   text_layer_set_text(s_day_summary_second_day_layer, day_two_buffer);
+  // Set Day summary Temperatures
+  text_layer_set_text(s_day_summary_text_first_layer, day_one_temperature_buffer);
+  text_layer_set_text(s_day_summary_text_second_layer, day_two_temperature_buffer);
   // Set Day Summary Icons
   s_day_summary_first = gbitmap_create_with_resource(get_resource_id_for_forecast(day_one_icon));
   s_day_summary_second = gbitmap_create_with_resource(get_resource_id_for_forecast(day_two_icon));
   bitmap_layer_set_bitmap(s_day_summary_first_layer, s_day_summary_first);
   bitmap_layer_set_bitmap(s_day_summary_second_layer, s_day_summary_second);
-  // Set Day Summary Weather
-  text_layer_set_text(s_day_summary_text_first_layer, day_one_temperature_buffer);
-  text_layer_set_text(s_day_summary_text_second_layer, day_two_temperature_buffer);
 }
 
 static void inbox_dropped_callback(AppMessageResult reason, void *context) {

@@ -51,7 +51,7 @@ function buildPrecipIntensityString(intensity) {
     intensityString = "";
   } else if (intensity >= 0.002 && intensity < 0.1) {
     intensityString = ">";
-  } else if (intensity >= 0.1 && intensity <= 0.4) {
+  } else if (intensity >= 0.1 && intensity < 0.4) {
     intensityString = ">>";
   } else if (intensity >= 0.4) {
     intensityString = ">>>";

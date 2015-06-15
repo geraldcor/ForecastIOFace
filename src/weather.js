@@ -45,6 +45,20 @@ function getResourceIdForIconString(icon) {
   return resource_id;
 }
 
+function buildPrecipIntensityString(intensity) {
+  var intensityString;
+  if (intensity === 0) {
+    intensityString = "";
+  } else if (intensity >= 0.002 && intensity < 0.1) {
+    intensityString = ">";
+  } else if (intensity >= 0.1 && intensity <= 0.4) {
+    intensityString = ">>";
+  } else if (intensity >= 0.4) {
+    intensityString = ">>>";
+  }
+  return intensityString;
+}
+
 function locationSuccess(pos) {
   // Construct URL
   var url = 'https://api.forecast.io/forecast/acb79d16706f871691877ca0e5a9f346/' +
@@ -56,6 +70,7 @@ function locationSuccess(pos) {
       // responseText contains a JSON object with weather info
       var json = JSON.parse(responseText);
       var daily = json.daily.data;
+      var hourly = json.hourly.data;
       console.log(json);
       // Temperature in Kelvin requires adjustment
       var temperature = Math.round(json.currently.temperature);
@@ -63,12 +78,18 @@ function locationSuccess(pos) {
 
       // Conditions
       var conditions = json.minutely.summary;
+      var hourPrecipChance = (hourly[0].precipProbability * 100);
+      var hourPrecipIntensity = hourly[0].precipIntensity;
+      var hourPrecipString = buildPrecipIntensityString(hourPrecipIntensity);
       var todayMax = Math.round(daily[0].temperatureMax);
       var todayPrecipChance = (daily[0].precipProbability * 100);
+      var todayPrecipIntensity = daily[0].precipIntensity;
+      var todayPrecipString = buildPrecipIntensityString(todayPrecipIntensity);
       var now = new Date();
       var minutes = now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes();
       var lastRead = now.getHours() + ":" + minutes;
-      conditions = conditions + " - " + todayMax + "˚ " + todayPrecipChance + "% - (" + lastRead + ")";
+//       conditions = conditions + " - " + todayMax + "˚ " + todayPrecipChance + "% - (" + lastRead + ")";
+      conditions = "High: " + todayMax + "˚\n1hr: " + hourPrecipChance + "% " + hourPrecipString + "\nDay: " + todayPrecipChance + "% " + todayPrecipString + "\n(" + lastRead + ")";
       var icon = json.minutely.icon;
       // Days Summary
       var day_1_day = new Date(daily[1].time * 1000).toDateString().split(" ")[0];

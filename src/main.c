@@ -168,7 +168,7 @@ static void main_window_load(Window *window) {
   layer_add_child(s_weather_day_summary_layer, text_layer_get_layer(s_day_summary_first_day_layer));
 
   // Second
-  s_day_summary_second_day_layer = text_layer_create(GRect(82, 0, 36, 16));
+  s_day_summary_second_day_layer = text_layer_create(GRect(84, 0, 36, 16));
   text_layer_set_background_color(s_day_summary_second_day_layer, GColorClear);
   #ifdef PBL_COLOR
     text_layer_set_text_color(s_day_summary_second_day_layer, GColorOrange);
@@ -193,7 +193,7 @@ static void main_window_load(Window *window) {
   layer_add_child(s_weather_day_summary_layer, text_layer_get_layer(s_day_summary_text_first_layer));
   
   // Second
-  s_day_summary_text_second_layer = text_layer_create(GRect(84, 16, 36, 16));
+  s_day_summary_text_second_layer = text_layer_create(GRect(86, 16, 36, 16));
   text_layer_set_background_color(s_day_summary_text_second_layer, GColorClear);
   #ifdef PBL_COLOR
     text_layer_set_text_color(s_day_summary_text_second_layer, GColorOrange);
@@ -216,7 +216,7 @@ static void main_window_load(Window *window) {
   
   // Second
   s_day_summary_second = gbitmap_create_with_resource(RESOURCE_ID_CLEAR_DAY);
-  s_day_summary_second_layer = bitmap_layer_create(GRect(82, 34, 36, 36));
+  s_day_summary_second_layer = bitmap_layer_create(GRect(84, 34, 36, 36));
   bitmap_layer_set_bitmap(s_day_summary_second_layer, s_day_summary_second);
   #ifdef PBL_COLOR
     bitmap_layer_set_compositing_mode(s_day_summary_second_layer, GCompOpSet);
@@ -339,7 +339,7 @@ static int get_resource_id_for_forecast(int icon_int) {
 
 static void inbox_received_callback(DictionaryIterator *iterator, void *context) {
   static char temperature_buffer[8];
-  static char conditions_buffer[50];
+  static char conditions_buffer[100];
   static int icon_int;
   static int day_one_icon;
   static int day_two_icon;

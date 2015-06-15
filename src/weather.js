@@ -64,10 +64,11 @@ function locationSuccess(pos) {
       // Conditions
       var conditions = json.minutely.summary;
       var todayMax = Math.round(daily[0].temperatureMax);
+      var todayPrecipChance = (daily[0].precipProbability * 100);
       var now = new Date();
       var minutes = now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes();
       var lastRead = now.getHours() + ":" + minutes;
-      conditions = conditions + " High: " + todayMax + "˚ (" + lastRead + ")";
+      conditions = conditions + " - " + todayMax + "˚ " + todayPrecipChance + "% - (" + lastRead + ")";
       var icon = json.minutely.icon;
       // Days Summary
       var day_1_day = new Date(daily[1].time * 1000).toDateString().split(" ")[0];

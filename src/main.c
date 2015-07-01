@@ -39,7 +39,9 @@ static void update_time() {
 
   // Create a long-lived buffer
   static char buffer[] = "09:06";
-  static char dateBuffer[] = "Mon 30";
+  static char dateBuffer[] = "May 30";
+  static char dayBuffer[] = "30";
+  static char finalDateBuffer[6];
 
   // Write the current hours and minutes into the buffer
   if(clock_is_24h_style() == true) {
@@ -50,12 +52,17 @@ static void update_time() {
     strftime(buffer, sizeof("00:00"), "%l:%M", tick_time);
   }
   
+  // Write current Day Day
+  strftime(dateBuffer, sizeof("Mon"), "%a", tick_time);
   // Write current Day Date
-  strftime(dateBuffer, sizeof("Mon 30"), "%a %d", tick_time);
+  strftime(dayBuffer, sizeof("130"), "%n%d", tick_time);
+  
+
+  snprintf(finalDateBuffer, sizeof(finalDateBuffer), "%c%c%s", dateBuffer[0], dateBuffer[1], dayBuffer);
   
   // Display this time on the TextLayer
   text_layer_set_text(s_time_layer, buffer);
-  text_layer_set_text(s_date_layer, dateBuffer);
+  text_layer_set_text(s_date_layer, finalDateBuffer);
 }
 
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
@@ -91,7 +98,7 @@ static void tap_handler(AccelAxisType axis, int32_t direction) {
 static void main_window_load(Window *window) {
   // Create GFont
   s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_ARVO_REGULAR_34));
-  s_date_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_ARVO_REGULAR_12));
+  s_date_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_ARVO_BOLD_16));
   s_summary_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_ARVO_REGULAR_14));
   
   // Create time TextLayer
@@ -103,11 +110,11 @@ static void main_window_load(Window *window) {
     text_layer_set_text_color(s_time_layer, GColorWhite);
   #endif
   text_layer_set_font(s_time_layer, s_time_font);
-  text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter);
+  text_layer_set_text_alignment(s_time_layer, GTextAlignmentLeft);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_time_layer));
   
   // Create date TextLayer
-  s_date_layer = text_layer_create(GRect(105, 130, 30, 36));
+  s_date_layer = text_layer_create(GRect(105, 125, 30, 36));
   text_layer_set_background_color(s_date_layer, GColorClear);
   #ifdef PBL_COLOR
     text_layer_set_text_color(s_date_layer, GColorOrange);
@@ -184,7 +191,7 @@ static void main_window_load(Window *window) {
   s_day_summary_text_first_layer = text_layer_create(GRect(27, 16, 36, 16));
   text_layer_set_background_color(s_day_summary_text_first_layer, GColorClear);
   #ifdef PBL_COLOR
-    text_layer_set_text_color(s_day_summary_text_first_layer, GColorOrange);
+    text_layer_set_text_color(s_day_summary_text_first_layer, GColorPictonBlue);
   #else
     text_layer_set_text_color(s_day_summary_text_first_layer, GColorWhite);
   #endif
@@ -196,7 +203,7 @@ static void main_window_load(Window *window) {
   s_day_summary_text_second_layer = text_layer_create(GRect(86, 16, 36, 16));
   text_layer_set_background_color(s_day_summary_text_second_layer, GColorClear);
   #ifdef PBL_COLOR
-    text_layer_set_text_color(s_day_summary_text_second_layer, GColorOrange);
+    text_layer_set_text_color(s_day_summary_text_second_layer, GColorPictonBlue);
   #else
     text_layer_set_text_color(s_day_summary_text_second_layer, GColorWhite);
   #endif

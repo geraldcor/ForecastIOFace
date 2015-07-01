@@ -140,6 +140,11 @@
             },
             {
                 "file": "fonts/Arvo-Bold.ttf",
+                "name": "ARVO_BOLD_16",
+                "type": "font"
+            },
+            {
+                "file": "fonts/Arvo-Bold.ttf",
                 "name": "ARVO_BOLD_34",
                 "type": "font"
             },

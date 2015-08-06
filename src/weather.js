@@ -86,7 +86,7 @@ function locationSuccess(pos) {
       var now = new Date();
       var minutes = now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes();
       var lastRead = now.getHours() + ":" + minutes;
-      conditions = conditions + " High: " + todayMax + "˚ PoP: " + todayPrecipChance + "% " + lastRead;
+      conditions = conditions + " High: " + todayMax + "˚ POP: " + todayPrecipChance + "% " + lastRead;
 //       conditions = "High: " + todayMax + "˚\n1hr: " + hourPrecipChance + "% " + hourPrecipString + "\nDay: " + todayPrecipChance + "% " + todayPrecipString + "\n(" + lastRead + ")";
       var icon = json.minutely.icon;
       // Days Summary

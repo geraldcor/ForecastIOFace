@@ -29,6 +29,7 @@ static TextLayer *s_day_summary_text_first_layer;
 static TextLayer *s_day_summary_text_second_layer;
 static TextLayer *s_day_summary_first_day_layer;
 static TextLayer *s_day_summary_second_day_layer;
+static time_t last_shake;
 
 // https://api.forecast.io/forecast/acb79d16706f871691877ca0e5a9f346/40.68724460903619,-111.84785331609831
 
@@ -82,6 +83,10 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
 }
 
 static void tap_handler(AccelAxisType axis, int32_t direction) {
+  time_t current = time(NULL);
+  if (current - last_shake < 1) {
+    return;
+  }
   bool summary = false;
   bool day_summary = true;
   
@@ -188,7 +193,7 @@ static void main_window_load(Window *window) {
   
   // Create Summary Temperature layers
   // First
-  s_day_summary_text_first_layer = text_layer_create(GRect(27, 16, 36, 16));
+  s_day_summary_text_first_layer = text_layer_create(GRect(27, 16, 38, 16));
   text_layer_set_background_color(s_day_summary_text_first_layer, GColorClear);
   #ifdef PBL_COLOR
     text_layer_set_text_color(s_day_summary_text_first_layer, GColorPictonBlue);
@@ -200,7 +205,7 @@ static void main_window_load(Window *window) {
   layer_add_child(s_weather_day_summary_layer, text_layer_get_layer(s_day_summary_text_first_layer));
   
   // Second
-  s_day_summary_text_second_layer = text_layer_create(GRect(86, 16, 36, 16));
+  s_day_summary_text_second_layer = text_layer_create(GRect(86, 16, 38, 16));
   text_layer_set_background_color(s_day_summary_text_second_layer, GColorClear);
   #ifdef PBL_COLOR
     text_layer_set_text_color(s_day_summary_text_second_layer, GColorPictonBlue);
@@ -240,7 +245,7 @@ static void main_window_unload(Window *window) {
   fonts_unload_custom_font(s_date_font);
   fonts_unload_custom_font(s_summary_font);
   // Destroy Weather Icon
-  gbitmap_destroy(s_weather_bitmap);
+//   gbitmap_destroy(s_weather_bitmap);
   // Destroy Weather Icon Layer
   bitmap_layer_destroy(s_weather_bitmap_layer);
   // Destroy Weather Text Layer
@@ -254,9 +259,9 @@ static void main_window_unload(Window *window) {
   text_layer_destroy(s_day_summary_text_first_layer);
   text_layer_destroy(s_day_summary_text_second_layer);
   // Destroy summary Icons
-  gbitmap_destroy(s_day_summary_first);
+//   gbitmap_destroy(s_day_summary_first);
   bitmap_layer_destroy(s_day_summary_first_layer);
-  gbitmap_destroy(s_day_summary_second);
+//   gbitmap_destroy(s_day_summary_second);
   bitmap_layer_destroy(s_day_summary_second_layer);
   // Destroy Weather Day Summary Layer
   layer_destroy(s_weather_day_summary_layer);
@@ -372,6 +377,7 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
       icon_int = (int)t->value->int32;
       break;
     case KEY_DAY_ONE_TEMPERATURE:
+      APP_LOG(APP_LOG_LEVEL_DEBUG, "Now Max Is This %d", (int)t->value->int32);
       snprintf(day_one_temperature_buffer, sizeof(day_one_temperature_buffer), "%d˚", (int)t->value->int32);
       break;
     case KEY_DAY_ONE_ICON:
@@ -412,6 +418,7 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
   text_layer_set_text(s_day_summary_first_day_layer, day_one_buffer);
   text_layer_set_text(s_day_summary_second_day_layer, day_two_buffer);
   // Set Day summary Temperatures
+  APP_LOG(APP_LOG_LEVEL_INFO, "Temp Is %s ", day_one_temperature_buffer);
   text_layer_set_text(s_day_summary_text_first_layer, day_one_temperature_buffer);
   text_layer_set_text(s_day_summary_text_second_layer, day_two_temperature_buffer);
   // Set Day Summary Icons
@@ -459,6 +466,9 @@ static void init() {
   app_message_register_outbox_sent(outbox_sent_callback);
   // Open AppMessage
   app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
+  
+  // Init our shake timer
+  time(&last_shake);
   
   // Make sure the time is displayed from the start
   update_time();
